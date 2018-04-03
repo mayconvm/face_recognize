@@ -8,6 +8,7 @@ const img = new Image();
 ctx.fillStyle = '#333';
 ctx.fillText('Aguarde...', cv.width/2-30, cv.height/3);
 
+// escuta a resposta do servidor
 socket.on('frame', function (data) {
   const uint8Arr = new Uint8Array(data.buffer);
   const str = String.fromCharCode.apply(null, uint8Arr);
@@ -19,7 +20,6 @@ socket.on('frame', function (data) {
   img.src = 'data:image/png;base64,' + base64String;
 });
 
-// escuta a resposta do servidor
 
 // envia a imagem em base64 para o webservice
 function sendImgBase64(cv, socket) {
@@ -30,12 +30,6 @@ function sendImgBase64(cv, socket) {
     base64: pngBase64
   });
 }
-
-// a cada 1 segundo é enviado a imagem para o webservice
-setInterval(function __sendImage() {
-  sendImgBase64(cv, socket);
-}, 1000);
-
 
 // Pegando a imagem da webcam
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -52,4 +46,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       video.src = window.URL.createObjectURL(stream);
       video.play();
   });
+
+  // a cada 1 segundo é enviado a imagem para o webservice
+  setInterval(function __sendImage() {
+    sendImgBase64(cv, socket);
+  }, 1000);
 }
