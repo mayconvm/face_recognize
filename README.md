@@ -17,22 +17,26 @@ Projeto escrito em Node.js, para reconhecer um rosto em uma imagem.
 	https://docs.opencv.org/trunk/d2/de6/tutorial_py_setup_in_ubuntu.html
 	https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/
 
-sudo apt-get install -y build-essential cmake pkg-config
-sudo apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
-sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-sudo apt-get install -y libxvidcore-dev libx264-dev
-sudo apt-get install -y libatlas-base-dev gfortran
+### Dependências
 
-wget https://github.com/opencv/opencv/archive/master.zip
-mv master.zip opencv.zip
-unzip opencv.zip
-cd opencv-master
-mkdir build
-cd build
-cmake ../
-make
-sudo make install
-sudo ldconfig
+* sudo apt-get install -y build-essential cmake pkg-config
+* sudo apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
+* sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+* sudo apt-get install -y libxvidcore-dev libx264-dev
+* sudo apt-get install -y libatlas-base-dev gfortran
+
+### Instalando a lib do OpenCV
+
+* wget https://github.com/opencv/opencv/archive/master.zip
+* mv master.zip opencv.zip
+* unzip opencv.zip
+* cd opencv-master
+* mkdir build
+* cd build
+* cmake ../
+* make
+* sudo make install
+* sudo ldconfig
 
 
 ## Problemas conhecidos
