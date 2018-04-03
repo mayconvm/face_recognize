@@ -5,12 +5,12 @@ Projeto escrito em Node.js, para reconhecer um rosto em uma imagem.
 
 ## Como funciona
 
-# Ao iniciar o webservice, será disponibilizado a url para carregar a página Web
-# Ao carregar a página pela url http://localhost:3000, será pedido permissão para camera.
-# Assim que for autorizado a captura da imagem da camera a conexão com socket irá iniciar
-# A cada 1 segundo, 1 frame é enviado para o webservice
-# O Modelo treinado para reconhecer um rosto será carregado e irá verificar a imagem
-# O Webservice irá devolver a imagem com um retangulo ao redor da imagem
+* Ao iniciar o webservice, será disponibilizado a url para carregar a página Web
+* Ao carregar a página pela url http://localhost:3000, será pedido permissão para camera.
+* Assim que for autorizado a captura da imagem da camera a conexão com socket irá iniciar
+* A cada 1 segundo, 1 frame é enviado para o webservice
+* O Modelo treinado para reconhecer um rosto será carregado e irá verificar a imagem
+* O Webservice irá devolver a imagem com um retangulo ao redor da imagem
 
 
 ## Instalando o OpenCV
