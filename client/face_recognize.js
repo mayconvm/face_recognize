@@ -1,21 +1,25 @@
 const cv = require('opencv');
+const mqtt = require('mqtt');
+const clientMqtt = mqtt.connect('mqtt://192.168.15.6:1883');
 
-// camera properties
-// const camWidth = 320;
-// const camHeight = 240;
-// const camFps = 10;
-// const camInterval = 1000 / camFps;
+// assim que conectar no serviço, será registrado os canais
+// que serão escultados
+clientMqtt.on('connect', function (err) {
+
+  console.log("connect--->", arguments);
+
+  clientMqtt.subscribe('/ledsON');
+  clientMqtt.subscribe('/ledsOFF');
+})
+ 
+clientMqtt.on('message', function (topic, message) {
+
+  console.log(topic + "---->>", message);
+});
 
 // // face detection properties
 const rectColor = [0, 255, 0];
 const rectThickness = 2;
-
-// // initialize camera
-// const camera = new cv.VideoCapture(0);
-// camera.setWidth(camWidth);
-// camera.setHeight(camHeight);
-
-
 
 module.exports = function (socket) {
   return function __socketRecognize(data) {
@@ -54,6 +58,9 @@ module.exports = function (socket) {
         }
 
         socket.emit('frame', { buffer: im.toBuffer() });
+
+        // MQTT
+        clientMqtt.publish('/ledsON', 'Hello mqtt');
       });
     });
 
