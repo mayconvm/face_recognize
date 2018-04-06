@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
+    "mqtt": "^2.17.0",
     "opencv": "git+https://github.com/peterbraden/node-opencv.git",
     "socket.io": "^2.1.0"
   }
