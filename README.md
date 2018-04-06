@@ -11,11 +11,16 @@ Projeto escrito em Node.js, para reconhecer um rosto em uma imagem.
 * A cada 1 segundo, 1 frame é enviado para o webservice
 * O Modelo treinado para reconhecer um rosto será carregado e irá verificar a imagem
 * O Webservice irá devolver a imagem com um retangulo ao redor da imagem
+* Será enviado uma notificação para o canal `/ledON` no servidor MQTT
 
 
 ## Instalando o OpenCV
 	https://docs.opencv.org/trunk/d2/de6/tutorial_py_setup_in_ubuntu.html
 	https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/
+
+## Servidor MQTT
+Para carregar o servidor em container do Docker, utilize o comando abaixo:
+* docker run  -p 1883:1883 --name faculdade_mqtt eclipse-mosquitto
 
 ### Dependências
 
