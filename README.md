@@ -44,6 +44,11 @@ Para carregar o servidor em container do Docker, utilize o comando abaixo:
 * sudo ldconfig
 
 
+## Integrar com o NodeMCU
+
+* Está no repositório https://github.com/mayconvm/mqqt-nodemcu
+
+
 ## Problemas conhecidos
 
 ### Problema 1
