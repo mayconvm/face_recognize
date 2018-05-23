@@ -34,14 +34,30 @@ module.exports = function (socket) {
     const pngPrefix = 'data:image/png;base64,';
     const base64 = data.base64.replace(pngPrefix, '');
 
+
+    // ler a imagem
     const bufferImage = new Buffer(base64, 'base64')
     const im = cv.readImage(bufferImage, function __recognize(err, im) {
       if (err) {
         throw err;
       }
 
+      // testa quem é que encontrou na foto
+      verifyFace(im, 'models/cascade_maycon.xml', 1);
+      verifyFace(im, 'models/cascade_jander.xml', 2);
+      verifyFace(im, 'models/cascade_gabriel.xml', 3);
+    });
+
+
+    function verifyFace(im, fileXml, code) {
       // carrega o modelo treinado para encontrar os rostos de: Maycon, Jan e Gabriel
-      im.detectObject('./node_modules/opencv/data/haarcascade_frontalface_alt2.xml', {}, function(err, faces) {
+      // im.detectObject('./node_modules/opencv/data/haarcascade_frontalface_alt2.xml', {}, function(err, faces) {
+      
+      let  opts = {
+        scale: 3
+      }
+
+      im.detectObject('./' + fileXml, opts, function(err, faces) {
         if (err) {
           throw err;
         }
@@ -50,19 +66,23 @@ module.exports = function (socket) {
           return
         }
 
-        console.log("Rosto encontrado.");
-
         for (let i = 0; i < faces.length; i++) {
           face = faces[i];
           im.rectangle([face.x, face.y], [face.width, face.height], rectColor, rectThickness);
         }
 
+        console.log("Rosto encontrado.");
+        // avisa que está esperando uma resposta
+        faceNotify(im, code);
+      });
+    }
+
+    function faceNotify(im, code) {
         socket.emit('frame', { buffer: im.toBuffer() });
 
         // MQTT
-        clientMqtt.publish('/ledsON', 'Hello mqtt');
-      });
-    });
+        clientMqtt.publish('/ledsON', 'Hello CODE:' + code);
+    }
 
   };
 };
