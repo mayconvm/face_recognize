@@ -54,7 +54,7 @@ module.exports = function (socket) {
       // im.detectObject('./node_modules/opencv/data/haarcascade_frontalface_alt2.xml', {}, function(err, faces) {
       
       let  opts = {
-        scale: 3
+        scale: 2
       }
 
       im.detectObject('./' + fileXml, opts, function(err, faces) {
@@ -71,7 +71,7 @@ module.exports = function (socket) {
           im.rectangle([face.x, face.y], [face.width, face.height], rectColor, rectThickness);
         }
 
-        console.log("Rosto encontrado.");
+        console.log("Rosto encontrado. Code: " + code);
         // avisa que está esperando uma resposta
         faceNotify(im, code);
       });
