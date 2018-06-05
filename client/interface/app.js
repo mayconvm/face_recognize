@@ -1,4 +1,4 @@
-const socket = io.connect('http://localhost:3000');
+const socket = io.connect('https://faculdade_sd:3000');
 
 const cv = document.getElementById('canvas-video');
 const ctx = cv.getContext('2d');

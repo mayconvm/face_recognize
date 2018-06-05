@@ -29,17 +29,16 @@ Para carregar o servidor em container do Docker, utilize o comando abaixo:
 * sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 * sudo apt-get install -y libxvidcore-dev libx264-dev
 * sudo apt-get install -y libatlas-base-dev gfortran
+* sudo apt-get install -y wget git tree vim curl unzip zip tar gcc g++ make
 
 ### Instalando a lib do OpenCV
 
-* wget https://github.com/opencv/opencv/archive/master.zip
-* mv master.zip opencv.zip
+* wget https://github.com/opencv/opencv/archive/3.4.1.zip
+* mv 3.4.1.zip opencv.zip
 * unzip opencv.zip
-* cd opencv-master
-* mkdir build
-* cd build
-* cmake ../
-* make
+* cd opencv-3.4.1
+* mkdir build && cd build
+* cmake ../ && make
 * sudo make install
 * sudo ldconfig
 
