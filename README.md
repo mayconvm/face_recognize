@@ -32,16 +32,16 @@ Para carregar o servidor em container do Docker, utilize o comando abaixo:
 * sudo apt-get install -y wget git tree vim curl unzip zip tar gcc g++ make
 
 ### Instalando a lib do OpenCV
-
-* wget https://github.com/opencv/opencv/archive/3.4.1.zip
-* mv 3.4.1.zip opencv.zip
-* unzip opencv.zip
-* cd opencv-3.4.1
-* mkdir build && cd build
-* cmake ../ && make
-* sudo make install
-* sudo ldconfig
-
+```bash
+    $ wget https://github.com/opencv/opencv/archive/3.4.1.zip
+    $ mv 3.4.1.zip opencv.zip
+    $ unzip opencv.zip
+    $ cd opencv-3.4.1
+    $ mkdir build && cd build
+    $ cmake ../ && make
+    $ sudo make install
+    $ sudo ldconfig
+```
 
 ## Integrar com o NodeMCU
 
@@ -51,6 +51,9 @@ Para carregar o servidor em container do Docker, utilize o comando abaixo:
 ## Problemas conhecidos
 
 ### Problema 1
+
+Erro no javascript
+
 ```js
 module.js:597
   return process.dlopen(module, path._makeLong(filename));
@@ -68,10 +71,12 @@ Error: libopencv_video.so.3.4: cannot open shared object file: No such file or d
     at Module._compile (module.js:570:32)
     at Object.Module._extensions..js (module.js:579:10)
 ```
-Solução: 
+
+*Solução:*
 	Tenha certeza que a biblioteca do opencv esteja instalada na maquina.  (passos OpenCV)
+
 ```bash
-	rm -rf node_modules
-	npm i
-	npm rebuild
+	$ rm -rf node_modules
+	$ npm i
+	$ npm rebuild
 ```
