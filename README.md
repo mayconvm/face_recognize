@@ -1,5 +1,6 @@
 # Reconhecimento facial
-Projeto da faculdade.
+
+Projeto da faculdade, para disciplina de Sistemas distribuídos.
 
 Projeto escrito em Node.js, para reconhecer um rosto em uma imagem.
 
@@ -15,21 +16,27 @@ Projeto escrito em Node.js, para reconhecer um rosto em uma imagem.
 
 
 ## Instalando o OpenCV
-	https://docs.opencv.org/trunk/d2/de6/tutorial_py_setup_in_ubuntu.html
-	https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/
+
+Links com documentações alternativas:
+	* https://docs.opencv.org/trunk/d2/de6/tutorial_py_setup_in_ubuntu.html
+	* https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/
 
 ## Servidor MQTT
-Para carregar o servidor em container do Docker, utilize o comando abaixo:
+    Para carregar o servidor em container do Docker, utilize o comando abaixo:
+
+```bash
 * docker run  -p 1883:1883 --name faculdade_mqtt eclipse-mosquitto
+```
 
 ### Dependências
-
-* sudo apt-get install -y build-essential cmake pkg-config
-* sudo apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
-* sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-* sudo apt-get install -y libxvidcore-dev libx264-dev
-* sudo apt-get install -y libatlas-base-dev gfortran
-* sudo apt-get install -y wget git tree vim curl unzip zip tar gcc g++ make
+```bash
+    $ sudo apt-get install -y build-essential cmake pkg-config
+    $ sudo apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
+    $ sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+    $ sudo apt-get install -y libxvidcore-dev libx264-dev
+    $ sudo apt-get install -y libatlas-base-dev gfortran
+    $ sudo apt-get install -y wget git tree vim curl unzip zip tar gcc g++ make
+```
 
 ### Instalando a lib do OpenCV
 ```bash
